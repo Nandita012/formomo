@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("heart-bg.jpg");
+  background-size: cover;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+/* Envelope */
+#envelope-container {
+  text-align: center;
+  cursor: pointer;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+#envelope-container p {
+  font-size: 24px;
+  color: #ff5c8a;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#envelope {
+  width: 200px;
+  animation: pulse 1.5s infinite;
+}
+
+/* Letter Screen */
+#letter-container {
+  display: none;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter-window {
+  width: 90vw;
+  max-width: 800px;
+  aspect-ratio: 3 / 2;
+  padding-top: 180px;
+  text-align: center;
+  background-image: url("window.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(255, 105, 180, 0.35);
+  backdrop-filter: blur(6px);
+
+  transform: scale(1.2);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+  transform: scale(1);
+  opacity: 1;
+}
+
+h1 {
+  font-size: 34px;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.letter-window.final h1 {
+  font-size: 38px;
+}
+
+
+/* Cat */
+.cat {
+  width: 250px;
+  margin: 10px 0;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.letter-window.final .cat {
+  width: 180px;
+  animation: none;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.btn {
+  width: 120px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+}
+
+.yes-btn:hover {
+  filter: drop-shadow(0 0 12px rgba(255, 0, 100, 0.6));
+}
+
+.no-btn {
+  cursor: default;
+}
+
+/* Final Text */
+.final-text {
+  font-size: 20px;
+  margin-top: 12px;
+  padding: 12px 20px;
+  background: rgba(255, 240, 240, 0.6);
+  border-radius: 14px;
+}
